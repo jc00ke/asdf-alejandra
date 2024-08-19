@@ -2,8 +2,7 @@
 
 set -euo pipefail
 
-# TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for alejandra.
-GH_REPO="https://github.com/jc00ke/asdf-alejandra"
+GH_REPO="https://github.com/kamadorueda/alejandra"
 TOOL_NAME="alejandra"
 TOOL_TEST="alejandra --help"
 
@@ -31,8 +30,6 @@ list_github_tags() {
 }
 
 list_all_versions() {
-	# TODO: Adapt this. By default we simply list the tag names from GitHub releases.
-	# Change this function if alejandra has other means of determining installable versions.
 	list_github_tags
 }
 
@@ -41,8 +38,7 @@ download_release() {
 	version="$1"
 	filename="$2"
 
-	# TODO: Adapt the release URL convention for alejandra
-	url="$GH_REPO/archive/v${version}.tar.gz"
+	url="$GH_REPO/releases/download/${version}/alejandra-x86_64-unknown-linux-musl"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
