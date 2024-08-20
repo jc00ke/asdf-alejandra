@@ -56,7 +56,6 @@ install_version() {
 	(
 		mkdir -p "$install_path"
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
-		mv "$install_path/alejandra-x86_64-unknown-linux-musl" "$install_path/alejandra"
 
 		local tool_cmd
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
